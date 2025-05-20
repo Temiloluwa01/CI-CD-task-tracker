@@ -1,193 +1,119 @@
-# MERN Task Manager
+# 📝 Task Tracker App
 
-A MERN application for basic tasks management.
-![image](https://user-images.githubusercontent.com/86913048/227101123-f8a35258-9c21-4479-86e8-055659ab75e2.png)
+A full-stack Task Tracker application with Dockerized frontend and backend, local development support using `docker-compose`, and a CI pipeline using GitHub Actions. Built and maintained with DevOps best practices.
 
-## Table of Contents
+---
 
-- [Features](#features)
-- [Tools and Technologies](#tools-and-technologies)
-- [Dependencies](#dependencies)
-- [Dev-dependencies](#dev-dependencies)
-- [Prerequisites](#prerequisites)
-- [Installation and setup](#installation-and-setup)
-- [Backend API](#backend-api)
-- [frontend pages](#frontend-pages)
-- [npm scripts](#npm-scripts)
-- [Useful Links](#useful-links)
-- [Contact](#contact)
+## 📦 Project Structure
 
-## Features
+```bash
+.
+├── frontend/              # React frontend
+│   └── Dockerfile
+├── backend/               # Express backend
+│   └── Dockerfile
+├── docker-compose.yml     # Local development setup
+└── .github/workflows/
+    └── ci.yml             # GitHub Actions CI workflow
+```
 
-### User-side features
+---
 
-- Signup
-- Login
-- Logout
-- Add tasks
-- View tasks
-- Update tasks
-- Delete tasks
+## 🚀 Features
 
-### Developer-side features
+- 🐳 Dockerized frontend and backend
+- 🔧 Local development with `docker-compose`
+- ✅ CI pipeline with GitHub Actions
+- ☁️ Deployment-ready for AWS (ECS or EC2)
+- 📈 (Optional) Monitoring with Grafana/Prometheus
+- 🌐 (Optional) Staging and production environments
 
-- Toasts for success and error messages
-- Form validations in frontend and backend
-- Fully Responsive Navbar
-- Token based Authentication
-- Use of 404 page for wrong urls
-- Relevant redirects
-- Global user state using Redux
-- Custom Loaders
-- Use of layout component for pages
-- Use of theme colors
-- No external CSS files needed (made using Tailwind CSS)
-- Usage of Tooltips
-- Dynamic document titles
-- Redirect to previous page after login
-- Use of various React hooks
-- Custom hook also used (useFetch)
-- Routes protection
-- Middleware for verifying the user in backend
-- Use of different HTTP status codes for sending responses
-- Standard pratices followed
+---
 
-## Tools and Technologies
+## 🛠️ Getting Started
 
-- HTML
-- CSS
-- Javascript
-- Tailwind CSS
-- Node.js
-- Express.js
-- React
-- Redux
-- Mongodb
+### Prerequisites
 
-## Dependencies
+- Docker & Docker Compose installed
+- Node.js installed (if testing outside Docker)
+- GitHub account
 
-Following are the major dependencies of the project:
+---
 
-- axios
-- react
-- react-dom
-- react-redux
-- react-router-dom
-- react-toastify
-- redux
-- redux-thunk
-- bcrypt
-- cors
-- dotenv
-- express
-- jsonwebtoken
-- mongoose
+## 🐳 Local Development
 
-## Dev-dependencies
+1. Clone the repository:
 
-Following are the major dev-dependencies of the project:
+```bash
+git clone https://github.com/your-username/task-tracker-app.git
+cd task-tracker-app
+```
 
-- nodemon
-- concurrently
+2. Run the app locally with Docker Compose:
 
-## Prerequisites
+```bash
+docker-compose up --build
+```
 
-- Node.js must be installed on the system.
-- You should have a MongoDB database.
-- You should have a code editor (preferred: VS Code)
+3. App runs at:
 
-## Installation and Setup
+- Frontend: `http://localhost:3000`
+- Backend: `http://localhost:5000`
 
-1. Install all the dependencies
+---
 
-   ```sh
-   npm run install-all
-   ```
+## 🔁 CI Pipeline (GitHub Actions)
 
-2. Create a file named ".env" inside the backend folder. Add data from .env.example file and substitute your credentials there.
+CI pipeline is triggered on push or PR to `main` branch. It performs the following:
 
-3. Start the application
+- ✅ Checkout code
+- 🔧 Build Docker images for frontend and backend
+- 🧪 Run tests (if defined)
+- 🔐 Optionally pushes images to DockerHub
 
-   ```sh
-   npm run dev
-   ```
+Path: `.github/workflows/ci.yml`
 
-4. Go to http://localhost:3000
+To enable DockerHub image pushing, add the following **repository secrets**:
 
-## Backend API
+- `DOCKERHUB_USERNAME`
+- `DOCKERHUB_TOKEN`
 
-<pre>
-- POST     /api/auth/signup
-- POST     /api/auth/login
-- GET      /api/tasks
-- GET      /api/tasks/:taskId
-- POST     /api/tasks
-- PUT      /api/tasks/:taskId
-- DELETE   /api/tasks/:taskId
-- GET      /api/profile
-</pre>
+---
 
-## Frontend pages
+## ☁️ Deployment (AWS – optional)
 
-<pre>
-- /                 Home Screen (Public home page for guests and private dashboard (tasks) for logged-in users)
-- /signup           Signup page
-- /login            Login page
-- /tasks/add        Add new task
-- /tasks/:taskId    Edit a task
-</pre>
+Deployment can be done via:
 
-## npm scripts
+- AWS ECS using pushed Docker images
+- AWS EC2 with manual setup
+- (GitHub Actions can be extended for automatic deployment)
 
-At root:
+*Deployment link will be provided upon deployment.*
 
-- `npm run dev`: Starts both backend and frontend
-- `npm run dev-server`: Starts only backend
-- `npm run dev-client`: Starts only frontend
-- `npm run install-all`: Installs all dependencies and dev-dependencies required at root, at frontend and at backend.
+---
 
-Inside frontend folder:
+## 🎁 Bonus (Planned)
 
-- `npm start`: Starts frontend in development mode
-- `npm run build`: Builds the frontend for production to the build folder
-- `npm test`: Launches the test runner in the interactive watch mode
-- `npm run eject`: This will remove the single build dependency from the frontend.
+- 📊 Monitoring with Prometheus and Grafana
+- 🧪 Staging and production environments with separate pipelines
 
-Inside backend folder:
+---
 
-- `npm run dev`: Starts backend using nodemon.
-- `npm start`: Starts backend without nodemon.
+## 📸 Deliverables
 
-## Useful Links
+- ✅ GitHub repository: [Repo Link](https://github.com/your-username/task-tracker-app)
+- 🌍 Deployment Link: _Coming soon_
+- 📋 CI Pipeline Logs: _Available in GitHub Actions tab_
 
-- This project
+---
 
-  - Github Repo: https://github.com/aayush301/MERN-task-manager
+## 👨🏽‍💻 Author
 
-- Official Docs
+Temi – Cloud Infrastructure Engineer & DevOps Enthusiast  
+GitHub: [@your-username](https://github.com/your-username)
 
-  - Reactjs docs: https://reactjs.org/docs/getting-started.html
-  - npmjs docs: https://docs.npmjs.com/
-  - Mongodb docs: https://docs.mongodb.com/manual/introduction/
-  - Github docs: https://docs.github.com/en/get-started/quickstart/hello-world
+---
 
-- Youtube tutorials
+## 📄 License
 
-  - Expressjs: https://youtu.be/L72fhGm1tfE
-  - React: https://youtu.be/EHTWMpD6S_0
-  - Redux: https://youtu.be/1oU_YGhT7ck
-
-- Download links
-
-  - Nodejs download: https://nodejs.org/
-  - VS Code download: https://code.visualstudio.com/
-
-- Cheatsheets
-  - Git cheatsheet: https://education.github.com/git-cheat-sheet-education.pdf
-  - VS Code keyboard shortcuts: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
-  - CSS Selectors Cheatsheet: https://frontend30.com/css-selectors-cheatsheet/
-
-## Contact
-
-- Email: aayush5521186@gmail.com
-- Linkedin: https://www.linkedin.com/in/aayush12/
+This project is licensed under the MIT License.
