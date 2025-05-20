@@ -1,0 +1,25 @@
+services:
+  backend:
+    build:
+      context: .                    
+      dockerfile: backend/dockerfile 
+    container_name: task-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:5
+    container_name: task-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
