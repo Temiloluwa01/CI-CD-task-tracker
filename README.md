@@ -9,12 +9,12 @@ A full-stack Task Tracker application with Dockerized frontend and backend, loca
 ```bash
 .
 ├── frontend/              # React frontend
-│   └── Dockerfile
+│  
 ├── backend/               # Express backend
 │   └── Dockerfile
 ├── docker-compose.yml     # Local development setup
 └── .github/workflows/
-    └── ci.yml             # GitHub Actions CI workflow
+    └── ci.yaml             # GitHub Actions CI workflow
 ```
 
 ---
@@ -82,38 +82,20 @@ To enable DockerHub image pushing, add the following **repository secrets**:
 
 ## ☁️ Deployment (AWS – optional)
 
-Deployment can be done via:
+I used an EC2 machine for deployment but deployment can be done via:
 
 - AWS ECS using pushed Docker images
-- AWS EC2 with manual setup
-- (GitHub Actions can be extended for automatic deployment)
-
-*Deployment link will be provided upon deployment.*
+- AWS EC2 e.t.c
 
 ---
 
-## 🎁 Bonus (Planned)
-
-- 📊 Monitoring with Prometheus and Grafana
-- 🧪 Staging and production environments with separate pipelines
-
 ---
-
-## 📸 Deliverables
-
-- ✅ GitHub repository: [Repo Link](https://github.com/your-username/task-tracker-app)
-- 🌍 Deployment Link: _Coming soon_
-- 📋 CI Pipeline Logs: _Available in GitHub Actions tab_
 
 ---
 
 ## 👨🏽‍💻 Author
 
 Temi – Cloud Infrastructure Engineer & DevOps Enthusiast  
-GitHub: [@your-username](https://github.com/your-username)
+GitHub: [@Temiloluwa01][(https://github.com/Temiloluwa01)]
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License.
