@@ -32,6 +32,12 @@ jobs:
           --security-groups default \
           --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=task-tracker-instance}]' \
           --user-data file://scripts/install-docker.sh \
+          --user-data '#!/bin/bash
+          sudo yum update -y
+          sudo yum install -y docker
+          sudo service docker start
+          sudo usermod -a -G docker ec2-user' \
+
           --output text --query 'Instances[0].InstanceId')
 
         echo "EC2_INSTANCE_ID=$INSTANCE_ID" >> $GITHUB_ENV
