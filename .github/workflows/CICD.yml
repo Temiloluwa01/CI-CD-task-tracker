@@ -57,7 +57,7 @@ jobs:
     # Copy app code to EC2
     - name: Package and transfer app code
       run: |
-        tar --warning=no-file-changed -czf deploy.tar.gz .  # Zipping the entire project directory
+        tar --warning=no-file-changed --exclude='.git' --exclude='node_modules' --exclude='*.log' -czf deploy.tar.gz .
         scp -o StrictHostKeyChecking=no -i my-key.pem deploy.tar.gz ec2-user@${{ env.EC2_PUBLIC_IP }}:/home/ec2-user/
 
     # SSH into the EC2 and deploy it the app
