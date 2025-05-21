@@ -1,4 +1,4 @@
-name: CI Pipeline for Task Tracker
+name: Pipeline for Task Tracker
 
 on:
   push:
@@ -16,6 +16,14 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
+      # ✅ Create the .env file from GitHub Secrets  this is for the the ci pipeline on my github repo
+      - name: Create backend .env file securely
+        run: |
+          mkdir -p backend  # just in case
+          echo "MONGODB_URL=${{ secrets.MONGODB_URL }}" >> backend/.env
+          echo "PORT=${{ secrets.PORT }}" >> backend/.env
+          echo "ACCESS_TOKEN_SECRET=${{ secrets.ACCESS_TOKEN_SECRET }}" >> backend/.env
 
       - name: Build services with Docker Compose
         run: docker compose -f docker-compose.yaml build
