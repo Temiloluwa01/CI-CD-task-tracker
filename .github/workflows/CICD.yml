@@ -20,7 +20,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        region: us-east-1   # 🔁 Change if you're deploying to a different region
+        aws-region: us-east-1   # 🔁 Change if you're deploying to a different region
 
     # Create a new EC2 instance from scratch
     - name: Launch EC2 Instance
