@@ -28,7 +28,7 @@ jobs:
         INSTANCE_ID=$(aws ec2 run-instances \
           --image-id ami-0c02fb55956c7d316 \
           --instance-type t2.micro \
-          --key-name my-key \  
+          --key-name my-key \
           --security-groups default \
           --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=task-tracker-instance}]' \
           --user-data file://scripts/install-docker.sh \
