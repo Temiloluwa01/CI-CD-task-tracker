@@ -31,7 +31,6 @@ jobs:
           --key-name my-key \
           --security-groups default \
           --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=task-tracker-instance}]' \
-          --user-data file://scripts/install-docker.sh \
           --user-data '#!/bin/bash
           sudo yum update -y
           sudo yum install -y docker
