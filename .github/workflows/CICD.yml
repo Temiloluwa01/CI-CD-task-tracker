@@ -76,6 +76,12 @@ jobs:
           sudo usermod -aG docker ec2-user
           newgrp docker
 
+         
+          # Install Docker Compose v2
+           sudo mkdir -p /usr/local/lib/docker/cli-plugins
+           sudo curl -SL https://github.com/docker/compose/releases/download/v2.24.5/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/lib/docker/cli-plugins/docker-compose
+           sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
+
           mkdir -p ~/app
           mv deploy.tar.gz ~/app/
           cd ~/app
